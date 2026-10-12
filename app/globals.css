@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Theme tokens (RGB channels so Tailwind opacity works) ---------- */
+:root {
+  --color-surface: 247 250 249;      /* Sea mist white  #F7FAF9 */
+  --color-mist: 227 238 235;         /* Secondary: sea glass tint  #E3EEEB */
+  --color-primary: 47 111 106;       /* Primary: eucalyptus teal  #2F6F6A */
+  --color-primary-dark: 28 74 70;    /* Deep teal  #1C4A46 */
+  --color-accent: 226 166 75;        /* Accent: golden hour  #E2A64B */
+  --color-ink: 28 43 40;             /* Text  #1C2B28 */
+  --color-muted: 75 95 91;           /* Secondary text  #4B5F5B */
+
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif tracking-tight;
+  }
+  section[id],
+  article[id] {
+    scroll-margin-top: 5.5rem;
+  }
+  :focus-visible {
+    outline: 3px solid rgb(var(--color-accent));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 md:px-8;
+  }
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  .btn-accent {
+    @apply bg-accent text-ink hover:bg-white;
+  }
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white;
+  }
+  .nav-link {
+    @apply text-sm font-medium text-ink/80 transition-colors hover:text-primary;
+  }
+  .field {
+    @apply w-full rounded-lg border border-primary/25 bg-white px-4 py-3 text-ink placeholder:text-muted/70;
+  }
+}
