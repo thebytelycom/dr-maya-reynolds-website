@@ -39,13 +39,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/15">
+            <div className="border-t border-white/15">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/65 md:flex-row md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. Fictional practice created for a design assignment.
           </p>
           <p>{footer.crisis}</p>
         </div>
+        <p className="container-x pb-6 text-center text-xs text-white/65">
+          Developed by thebytely
+        </p>
       </div>
     </footer>
   );
